@@ -41,6 +41,7 @@ ResolveX is a comprehensive project management solution inspired by Jira, design
 ```
 ResolveX/
 ├── .env                          # Global environment configuration
+├── .env.example                  # Environment configuration template
 ├── .gitignore                    # Git exclusions
 ├── .dockerignore                 # Docker build exclusions
 ├── docker-compose.yml            # Multi-container orchestration
@@ -64,6 +65,8 @@ ResolveX/
 │   ├── package-lock.json        # Dependency lock file
 │   ├── vite.config.js           # Vite configuration
 │   ├── eslint.config.js         # ESLint configuration
+│   ├── Dockerfile               # Frontend container configuration
+│   ├── .dockerignore            # Frontend-specific docker exclusions
 │   ├── .gitignore               # Frontend-specific git exclusions
 │   └── README.md                # Frontend documentation
 │
@@ -74,32 +77,39 @@ ResolveX/
 │   │   ├── src/
 │   │   ├── package.json         # Gateway dependencies
 │   │   ├── package-lock.json    # Dependency lock file
+│   │   ├── Dockerfile           # Gateway container configuration
 │   │   └── README.md            # Gateway documentation
 │   │
 │   └── services/                # Microservices
 │       ├── user/                # User Management Service
 │       │   ├── src/
 │       │   ├── package.json
+│       │   ├── Dockerfile       # Service container configuration
 │       │   └── README.md
 │       ├── project/             # Project Management Service
 │       │   ├── src/
 │       │   ├── package.json
+│       │   ├── Dockerfile       # Service container configuration
 │       │   └── README.md
 │       ├── issue/               # Issue Tracking Service
 │       │   ├── src/
 │       │   ├── package.json
+│       │   ├── Dockerfile       # Service container configuration
 │       │   └── README.md
 │       ├── sprint/              # Sprint Management Service
 │       │   ├── src/
 │       │   ├── package.json
+│       │   ├── Dockerfile       # Service container configuration
 │       │   └── README.md
 │       ├── workspace/           # Workspace Service
 │       │   ├── src/
 │       │   ├── package.json
+│       │   ├── Dockerfile       # Service container configuration
 │       │   └── README.md
 │       └── notification/        # Notification Service
 │           ├── src/
 │           ├── package.json
+│           ├── Dockerfile       # Service container configuration
 │           └── README.md
 │
 └── README.md                     # This file
