@@ -26,6 +26,7 @@ ResolveX is a comprehensive project management solution inspired by Jira, design
 
 ### Backend
 - **Node.js + Express** - RESTful API server
+- **Microservices** - Modular service architecture (Gateway, User, Project, Issue, Sprint, Notification, Workspace)
 - **Environment Variables** - Configuration management via `.env`
 
 ### DevOps & Infrastructure
@@ -39,20 +40,69 @@ ResolveX is a comprehensive project management solution inspired by Jira, design
 
 ```
 ResolveX/
-├── frontend/                  # React + Vite application
-│   ├── src/                  # React components and pages
-│   ├── package.json          # Frontend dependencies
-│   └── vite.config.js        # Vite configuration
+├── .env                          # Global environment configuration
+├── .gitignore                    # Git exclusions
+├── .dockerignore                 # Docker build exclusions
+├── docker-compose.yml            # Multi-container orchestration
 │
-├── backend/                  # Node.js API server
-│   ├── .env                  # Environment configuration
-│   ├── package.json          # Backend dependencies
-│   └── ...                   # API routes and middleware
+├── frontend/                     # React + Vite application
+│   ├── src/
+│   │   ├── api/                 # API client utilities
+│   │   ├── components/          # Reusable React components
+│   │   ├── contexts/            # React context providers
+│   │   ├── hooks/               # Custom React hooks
+│   │   ├── pages/               # Page components
+│   │   ├── utils/               # Utility functions
+│   │   ├── App.jsx              # Main app component
+│   │   ├── App.css              # App styles
+│   │   ├── Layout.jsx           # Layout wrapper
+│   │   ├── Layout.css           # Layout styles
+│   │   ├── main.jsx             # React entry point
+│   │   └── index.css            # Global styles
+│   ├── index.html               # HTML entry point
+│   ├── package.json             # Frontend dependencies
+│   ├── package-lock.json        # Dependency lock file
+│   ├── vite.config.js           # Vite configuration
+│   ├── eslint.config.js         # ESLint configuration
+│   ├── .gitignore               # Frontend-specific git exclusions
+│   └── README.md                # Frontend documentation
 │
-├── docker-compose.yml        # Multi-container orchestration
-├── .dockerignore              # Docker build exclusions
-├── .gitignore               # Git exclusions
-└── README.md                # This file
+├── backend/                      # Microservices backend
+│   ├── .gitignore               # Backend-specific git exclusions
+│   │
+│   ├── gateway/                 # API Gateway Service
+│   │   ├── src/
+│   │   ├── package.json         # Gateway dependencies
+│   │   ├── package-lock.json    # Dependency lock file
+│   │   └── README.md            # Gateway documentation
+│   │
+│   └── services/                # Microservices
+│       ├── user/                # User Management Service
+│       │   ├── src/
+│       │   ├── package.json
+│       │   └── README.md
+│       ├── project/             # Project Management Service
+│       │   ├── src/
+│       │   ├── package.json
+│       │   └── README.md
+│       ├── issue/               # Issue Tracking Service
+│       │   ├── src/
+│       │   ├── package.json
+│       │   └── README.md
+│       ├── sprint/              # Sprint Management Service
+│       │   ├── src/
+│       │   ├── package.json
+│       │   └── README.md
+│       ├── workspace/           # Workspace Service
+│       │   ├── src/
+│       │   ├── package.json
+│       │   └── README.md
+│       └── notification/        # Notification Service
+│           ├── src/
+│           ├── package.json
+│           └── README.md
+│
+└── README.md                     # This file
 ```
 
 ---
@@ -71,16 +121,29 @@ ResolveX/
    cd ResolveX
    ```
 
-2. **Setup Backend Environment**
+2. **Setup Environment Variables**
    ```bash
-   cd backend
    cp .env.example .env  # Copy and configure if needed
-   npm install
    ```
 
-3. **Setup Frontend Environment**
+3. **Setup Backend Environment**
    ```bash
-   cd ../frontend
+   cd backend
+   npm install
+   
+   # Install dependencies for each microservice
+   cd gateway && npm install && cd ..
+   cd services/user && npm install && cd ../..
+   cd services/project && npm install && cd ../..
+   cd services/issue && npm install && cd ../..
+   cd services/sprint && npm install && cd ../..
+   cd services/workspace && npm install && cd ../..
+   cd services/notification && npm install && cd ../..
+   ```
+
+4. **Setup Frontend Environment**
+   ```bash
+   cd frontend
    npm install
    ```
 
@@ -94,17 +157,41 @@ This will start all services containerized and orchestrated together.
 
 #### Option 2: Local Development
 ```bash
-# Terminal 1 - Backend
-cd backend
+# Terminal 1 - Gateway
+cd backend/gateway
 npm run dev
 
-# Terminal 2 - Frontend
+# Terminal 2 - User Service
+cd backend/services/user
+npm run dev
+
+# Terminal 3 - Project Service
+cd backend/services/project
+npm run dev
+
+# Terminal 4 - Issue Service
+cd backend/services/issue
+npm run dev
+
+# Terminal 5 - Sprint Service
+cd backend/services/sprint
+npm run dev
+
+# Terminal 6 - Workspace Service
+cd backend/services/workspace
+npm run dev
+
+# Terminal 7 - Notification Service
+cd backend/services/notification
+npm run dev
+
+# Terminal 8 - Frontend
 cd frontend
 npm run dev
 ```
 
 The frontend will be available at `http://localhost:5173` (Vite default)
-The backend API will run on the configured port (check `.env`)
+The backend API gateway will run on the configured port (check `.env`)
 
 ---
 
@@ -118,7 +205,7 @@ npm run preview  # Preview production build
 npm run lint     # Run ESLint
 ```
 
-### Backend
+### Backend (Gateway & Services)
 ```bash
 npm run dev      # Start development server with nodemon
 npm run build    # Build for production (if applicable)
@@ -139,6 +226,11 @@ docker-compose build
 docker-compose up
 ```
 
+### Run in Background
+```bash
+docker-compose up -d
+```
+
 ### Stop Services
 ```bash
 docker-compose down
@@ -147,33 +239,107 @@ docker-compose down
 ### View Logs
 ```bash
 docker-compose logs -f frontend
-docker-compose logs -f backend
+docker-compose logs -f gateway
+docker-compose logs -f user-service
+docker-compose logs -f project-service
+docker-compose logs -f issue-service
+docker-compose logs -f sprint-service
+docker-compose logs -f workspace-service
+docker-compose logs -f notification-service
 ```
 
 ---
 
 ## 🔧 Configuration
 
-### Environment Variables (.env)
+### Global Environment Variables (.env)
 
-Create a `.env` file in the `backend` directory:
+Create a `.env` file in the root directory:
 
 ```env
-# Server Configuration
-PORT=5000
+# ===========================================
+# Global Configuration
+# ===========================================
+
+# Node Environment
 NODE_ENV=development
 
+# ===========================================
+# Frontend Configuration
+# ===========================================
+VITE_API_BASE_URL=http://localhost:5000
+
+# ===========================================
+# API Gateway Configuration
+# ===========================================
+GATEWAY_PORT=5000
+GATEWAY_HOST=localhost
+
+# ===========================================
+# User Service Configuration
+# ===========================================
+USER_SERVICE_PORT=5001
+USER_SERVICE_HOST=localhost
+
+# ===========================================
+# Project Service Configuration
+# ===========================================
+PROJECT_SERVICE_PORT=5002
+PROJECT_SERVICE_HOST=localhost
+
+# ===========================================
+# Issue Service Configuration
+# ===========================================
+ISSUE_SERVICE_PORT=5003
+ISSUE_SERVICE_HOST=localhost
+
+# ===========================================
+# Sprint Service Configuration
+# ===========================================
+SPRINT_SERVICE_PORT=5004
+SPRINT_SERVICE_HOST=localhost
+
+# ===========================================
+# Workspace Service Configuration
+# ===========================================
+WORKSPACE_SERVICE_PORT=5005
+WORKSPACE_SERVICE_HOST=localhost
+
+# ===========================================
+# Notification Service Configuration
+# ===========================================
+NOTIFICATION_SERVICE_PORT=5006
+NOTIFICATION_SERVICE_HOST=localhost
+
+# ===========================================
 # Database Configuration (if applicable)
+# ===========================================
 DB_HOST=localhost
 DB_PORT=5432
 DB_NAME=resolvex
-DB_USER=user
-DB_PASSWORD=password
+DB_USER=resolvex_user
+DB_PASSWORD=resolvex_password
 
-# API Configuration
-API_BASE_URL=http://localhost:5000
+# ===========================================
+# CORS Configuration
+# ===========================================
 CORS_ORIGIN=http://localhost:5173
+
+# ===========================================
+# JWT Configuration (if applicable)
+# ===========================================
+JWT_SECRET=your_secret_key_here
+JWT_EXPIRY=24h
+
+# ===========================================
+# Log Configuration
+# ===========================================
+LOG_LEVEL=debug
 ```
+
+### Service-Specific Environment Variables
+
+Each microservice can have its own `.env` file in their respective directories for service-specific configurations.
 
 ---
 
@@ -186,6 +352,8 @@ CORS_ORIGIN=http://localhost:5173
 - ✅ REST API
 - ✅ Docker-based Deployment
 - ✅ Microservice Architecture
+- ✅ Service-to-Service Communication
+- ✅ Scalable and Modular Design
 
 ---
 
@@ -193,12 +361,36 @@ CORS_ORIGIN=http://localhost:5173
 
 API endpoints will be documented here. Common patterns:
 
+### Projects
 - `GET /api/projects` - Fetch all projects
 - `POST /api/projects` - Create new project
-- `GET /api/tasks` - Fetch tasks
-- `POST /api/tasks` - Create new task
-- `PUT /api/tasks/:id` - Update task
-- `DELETE /api/tasks/:id` - Delete task
+- `GET /api/projects/:id` - Get project details
+- `PUT /api/projects/:id` - Update project
+- `DELETE /api/projects/:id` - Delete project
+
+### Issues/Tasks
+- `GET /api/issues` - Fetch all issues
+- `POST /api/issues` - Create new issue
+- `GET /api/issues/:id` - Get issue details
+- `PUT /api/issues/:id` - Update issue
+- `DELETE /api/issues/:id` - Delete issue
+
+### Sprints
+- `GET /api/sprints` - Fetch all sprints
+- `POST /api/sprints` - Create new sprint
+- `GET /api/sprints/:id` - Get sprint details
+- `PUT /api/sprints/:id` - Update sprint
+
+### Users
+- `GET /api/users` - Fetch all users
+- `POST /api/auth/register` - Register new user
+- `POST /api/auth/login` - Login user
+- `GET /api/users/:id` - Get user details
+
+### Workspaces
+- `GET /api/workspaces` - Fetch all workspaces
+- `POST /api/workspaces` - Create new workspace
+- `GET /api/workspaces/:id` - Get workspace details
 
 ---
 
