@@ -1,0 +1,113 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.board-col {
+  background: var(--color-background-secondary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 12px;
+  padding: 12px;
+  min-height: 400px;
+  transition: border-color 0.15s;
+}
+
+.board-col-over {
+  border-color: #534AB7;
+  background: #EEEDFE;
+}
+
+.board-col-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.board-col-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.col-todo     { background: #888780; }
+.col-progress { background: #534AB7; }
+.col-review   { background: #EF9F27; }
+.col-done     { background: #1D9E75; }
+
+.board-col-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  flex: 1;
+}
+
+.board-col-count {
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 99px;
+  padding: 1px 8px;
+}
+
+.board-col-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.board-card {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 8px;
+  padding: 12px;
+  cursor: grab;
+  transition: border-color 0.15s;
+}
+
+.board-card:hover { border-color: #534AB7; }
+
+.board-card-dragging {
+  opacity: 0.4;
+  cursor: grabbing;
+}
+
+.board-card-title {
+  font-size: 13px;
+  color: var(--color-text-primary);
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.board-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.board-card-prio {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+
+.prio-high   { background: #FCEBEB; color: #791F1F; }
+.prio-medium { background: #FAEEDA; color: #633806; }
+.prio-low    { background: #EAF3DE; color: #27500A; }
+
+.board-card-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #EEEDFE;
+  color: #3C3489;
+  font-size: 9px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

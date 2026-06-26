@@ -1,0 +1,63 @@
+.sprint-card {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 12px;
+  padding: 16px 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color 0.15s;
+}
+
+.sprint-card:hover { border-color: #534AB7; }
+
+.sprint-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sprint-status {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 99px;
+  font-weight: 500;
+}
+
+.sprint-status-active  { background: #E1F5EE; color: #085041; }
+.sprint-status-done    { background: #EEEDFE; color: #3C3489; }
+.sprint-status-planned { background: #FAEEDA; color: #633806; }
+
+.sprint-dates {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+}
+
+.sprint-dates i { font-size: 14px; }
+
+.sprint-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.sprint-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.sprint-issues {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+}
+
+.sprint-issues i { font-size: 14px; }

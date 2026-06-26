@@ -1,0 +1,103 @@
+.proj-card {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color 0.15s;
+}
+
+.proj-card:hover { border-color: #534AB7; }
+
+.proj-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.proj-status {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 99px;
+  font-weight: 500;
+}
+
+.status-active  { background: #E1F5EE; color: #085041; }
+.status-done    { background: #EEEDFE; color: #3C3489; }
+.status-hold    { background: #FAEEDA; color: #633806; }
+
+.proj-delete {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-tertiary);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.proj-card:hover .proj-delete { opacity: 1; }
+.proj-delete:hover { background: var(--color-background-danger); color: var(--color-text-danger); }
+.proj-delete i { font-size: 15px; }
+
+.proj-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.proj-desc {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.proj-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.proj-meta {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+}
+
+.proj-meta i { font-size: 14px; }
+
+.proj-lead {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.proj-lead-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #EEEDFE;
+  color: #3C3489;
+  font-size: 10px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

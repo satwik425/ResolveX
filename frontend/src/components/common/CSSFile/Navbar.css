@@ -1,0 +1,382 @@
+/* ─── Brand ─────────────────────────────────────────────── */
+.navbar {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 1.25rem;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+  background: var(--color-background-primary);
+  position: relative;
+  z-index: 50;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navbar-logo {
+  width: 32px;
+  height: 32px;
+  background: #534AB7;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-logo i {
+  color: #fff;
+  font-size: 18px;
+}
+
+.navbar-brand-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  letter-spacing: -0.3px;
+}
+
+.navbar-brand-name span {
+  color: #534AB7;
+}
+
+/* ─── Spacer ─────────────────────────────────────────────── */
+.navbar-spacer {
+  flex: 1;
+}
+
+/* ─── Search ─────────────────────────────────────────────── */
+.navbar-search {
+  flex: 1;
+  max-width: 360px;
+  position: relative;
+  margin: 0 8px;
+}
+
+.navbar-search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 15px;
+  color: var(--color-text-tertiary);
+  pointer-events: none;
+}
+
+.navbar-search input {
+  width: 100%;
+  height: 34px;
+  padding: 0 12px 0 34px;
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 8px;
+  font-size: 13px;
+  background: var(--color-background-secondary);
+  color: var(--color-text-primary);
+  outline: none;
+}
+
+.navbar-search input:focus {
+  border-color: #534AB7;
+}
+
+.navbar-search input::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+/* ─── Search Dropdown ────────────────────────────────────── */
+.search-dropdown {
+  position: absolute;
+  top: 38px;
+  left: 0;
+  right: 0;
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 8px;
+  z-index: 100;
+}
+
+.search-dropdown-item {
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--color-text-primary);
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+}
+
+.search-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.search-dropdown-item:hover {
+  background: var(--color-background-secondary);
+}
+
+.search-dropdown-item i {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+/* ─── Issue Status Badge ─────────────────────────────────── */
+.issue-badge {
+  margin-left: auto;
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 99px;
+}
+
+.issue-badge-open {
+  background: #EAF3DE;
+  color: #3B6D11;
+}
+
+.issue-badge-progress {
+  background: #E6F1FB;
+  color: #185FA5;
+}
+
+.issue-badge-done {
+  background: #E1F5EE;
+  color: #0F6E56;
+}
+
+/* ─── Nav Actions ────────────────────────────────────────── */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ─── Buttons ────────────────────────────────────────────── */
+.nav-btn {
+  height: 34px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  background: transparent;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+}
+
+.nav-btn:hover {
+  background: var(--color-background-secondary);
+}
+
+.nav-btn i {
+  font-size: 16px;
+}
+
+.nav-btn-primary {
+  background: #534AB7;
+  color: #fff;
+  border-color: #534AB7;
+}
+
+.nav-btn-primary:hover {
+  background: #3C3489;
+  border-color: #3C3489;
+}
+
+/* ─── Icon Button ────────────────────────────────────────── */
+.icon-btn {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 8px;
+  cursor: pointer;
+  background: transparent;
+  color: var(--color-text-secondary);
+  position: relative;
+}
+
+.icon-btn:hover {
+  background: var(--color-background-secondary);
+  color: var(--color-text-primary);
+}
+
+.icon-btn i {
+  font-size: 18px;
+}
+
+/* ─── Notification Badge Dot ─────────────────────────────── */
+.notif-dot {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 8px;
+  height: 8px;
+  background: #E24B4A;
+  border-radius: 50%;
+  border: 2px solid var(--color-background-primary);
+}
+
+/* ─── Notification Panel ─────────────────────────────────── */
+.notif-panel {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 300px;
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 12px;
+  z-index: 100;
+}
+
+.notif-panel-header {
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+}
+
+.notif-panel-header span {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.notif-mark-read {
+  font-size: 12px;
+  color: #534AB7;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.notif-empty {
+  padding: 12px 14px;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.notif-item {
+  padding: 10px 14px;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+  cursor: pointer;
+}
+
+.notif-item:last-child {
+  border-bottom: none;
+}
+
+.notif-item:hover {
+  background: var(--color-background-secondary);
+}
+
+.notif-item-unread {
+  background: #EEEDFE;
+}
+
+.notif-item-unread:hover {
+  background: #CECBF6;
+}
+
+.notif-item-title {
+  font-size: 13px;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.notif-item-time {
+  font-size: 11px;
+  color: var(--color-text-tertiary);
+  margin: 2px 0 0;
+}
+
+/* ─── Avatar ─────────────────────────────────────────────── */
+.navbar-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #EEEDFE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: #534AB7;
+  cursor: pointer;
+  border: 0.5px solid var(--color-border-tertiary);
+  flex-shrink: 0;
+}
+
+/* ─── Profile Panel ──────────────────────────────────────── */
+.profile-panel {
+  position: absolute;
+  top: 38px;
+  right: 0;
+  width: 200px;
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 12px;
+  z-index: 100;
+}
+
+.profile-panel-top {
+  padding: 10px 14px;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+}
+
+.profile-panel-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.profile-panel-email {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.profile-panel-item {
+  padding: 9px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  color: var(--color-text-primary);
+}
+
+.profile-panel-item:hover {
+  background: var(--color-background-secondary);
+}
+
+.profile-panel-item i {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+}
+
+.profile-panel-item-danger {
+  color: #A32D2D;
+}
+
+.profile-panel-item-danger i {
+  color: #A32D2D;
+}
+
+/* ─── Divider ────────────────────────────────────────────── */
+.navbar-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--color-border-tertiary);
+  margin: 0 2px;
+}

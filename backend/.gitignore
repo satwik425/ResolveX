@@ -1,0 +1,14 @@
+# Environment variables
+.env
+
+
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+
+
+# Docker
+.dockerignore
+Dockerfile*
+docker-compose.override.yml
+docker-compose.yml

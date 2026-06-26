@@ -1,0 +1,76 @@
+.ws-page { max-width: 1100px; margin: 0 auto; }
+
+.ws-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.ws-page-title {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+
+.ws-page-sub {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.ws-page-btn {
+  height: 36px;
+  padding: 0 16px;
+  background: #534AB7;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.ws-page-btn:hover { background: #3C3489; }
+.ws-page-btn i { font-size: 16px; }
+
+.ws-page-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.ws-page-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 80px 20px;
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.ws-page-empty i {
+  font-size: 40px;
+  color: var(--color-text-tertiary);
+}
+
+.ws-page-empty p {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+}
+
+.ws-page-btn-secondary {
+  background: transparent !important;
+  color: var(--color-text-primary) !important;
+  border: 1px solid var(--color-border) !important;
+}
+
+.ws-page-btn-secondary:hover {
+  background: var(--color-bg-hover) !important;
+}

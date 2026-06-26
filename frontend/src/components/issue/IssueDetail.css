@@ -1,0 +1,219 @@
+.issue-detail-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.issue-detail {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 16px;
+  padding: 28px;
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.issue-detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.issue-detail-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.issue-detail-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.issue-detail-edit-btn {
+  height: 30px;
+  padding: 0 12px;
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 8px;
+  background: transparent;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.issue-detail-edit-btn:hover {
+  background: var(--color-background-secondary);
+}
+
+.issue-detail-edit-btn i { font-size: 14px; }
+
+.issue-detail-delete-btn {
+  height: 30px;
+  padding: 0 12px;
+  border: 0.5px solid var(--color-border-danger);
+  border-radius: 8px;
+  background: transparent;
+  font-size: 13px;
+  color: var(--color-text-danger);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.issue-detail-delete-btn:hover {
+  background: var(--color-background-danger);
+}
+
+.issue-detail-delete-btn i { font-size: 14px; }
+
+.issue-detail-close {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-tertiary);
+}
+
+.issue-detail-close:hover {
+  background: var(--color-background-secondary);
+}
+
+.issue-detail-close i { font-size: 16px; }
+
+.issue-detail-error {
+  font-size: 13px;
+  color: var(--color-text-danger);
+  background: var(--color-background-danger);
+  border: 0.5px solid var(--color-border-danger);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ── View mode ── */
+.issue-detail-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: 8px;
+}
+
+.issue-detail-desc {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* ── Edit mode ── */
+.issue-detail-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  margin-bottom: 6px;
+}
+
+.issue-detail-input {
+  width: 100%;
+  height: 38px;
+  padding: 0 12px;
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 8px;
+  font-size: 13px;
+  background: var(--color-background-secondary);
+  color: var(--color-text-primary);
+  outline: none;
+  margin-bottom: 12px;
+}
+
+.issue-detail-input:focus { border-color: #534AB7; }
+
+.issue-detail-textarea {
+  height: auto;
+  padding: 10px 12px;
+  resize: none;
+  line-height: 1.5;
+}
+
+.issue-detail-edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.issue-detail-cancel {
+  height: 34px;
+  padding: 0 14px;
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 8px;
+  background: transparent;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.issue-detail-save {
+  height: 34px;
+  padding: 0 14px;
+  border: none;
+  border-radius: 8px;
+  background: #534AB7;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.issue-detail-save:hover    { background: #3C3489; }
+.issue-detail-save:disabled { background: #AFA9EC; cursor: not-allowed; }
+
+/* ── Meta section ── */
+.issue-detail-meta {
+  border-top: 0.5px solid var(--color-border-tertiary);
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.issue-detail-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.issue-detail-meta-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.issue-detail-meta-label i { font-size: 15px; }
+
+.issue-detail-meta-value {
+  font-size: 13px;
+  color: var(--color-text-primary);
+  font-weight: 500;
+}

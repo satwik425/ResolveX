@@ -1,0 +1,398 @@
+/* ===========================
+   Modal Overlay
+=========================== */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1.5rem;
+
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  animation: overlayFade .25s ease;
+}
+
+/* ===========================
+   Modal Card
+=========================== */
+
+.modal {
+  width: min(100%, 460px);
+  max-height: calc(100vh - 3rem);
+  overflow-y: auto;
+
+  background: var(--color-background-primary);
+  border: 1px solid rgba(255,255,255,.08);
+
+  border-radius: 22px;
+
+  padding: clamp(20px,4vw,32px);
+
+  box-shadow:
+      0 25px 80px rgba(0,0,0,.18),
+      0 8px 24px rgba(0,0,0,.08);
+
+  animation: modalPop .3s cubic-bezier(.18,.9,.32,1.05);
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:28px;
+}
+
+.modal-title{
+    font-size:1.2rem;
+    font-weight:700;
+    letter-spacing:-.02em;
+    color:var(--color-text-primary);
+}
+
+/* ===========================
+   Close Button
+=========================== */
+
+.modal-close{
+    width:40px;
+    height:40px;
+
+    border:none;
+    border-radius:12px;
+
+    display:grid;
+    place-items:center;
+
+    background:transparent;
+
+    color:var(--color-text-secondary);
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.modal-close:hover{
+    background:var(--color-background-secondary);
+    color:var(--color-text-primary);
+
+    transform:rotate(90deg);
+}
+
+.modal-close:active{
+    transform:scale(.92);
+}
+
+.modal-close i{
+    font-size:18px;
+}
+
+/* ===========================
+   Error
+=========================== */
+
+.modal-error{
+    display:flex;
+    align-items:center;
+    gap:.6rem;
+
+    padding:14px 16px;
+
+    margin-bottom:20px;
+
+    border-radius:12px;
+
+    background:rgba(239,68,68,.08);
+
+    border:1px solid rgba(239,68,68,.25);
+
+    color:#dc2626;
+
+    font-size:.9rem;
+}
+
+/* ===========================
+   Form
+=========================== */
+
+.modal-form-group{
+    margin-bottom:20px;
+}
+
+.modal-label{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:8px;
+
+    font-size:.88rem;
+    font-weight:600;
+
+    color:var(--color-text-secondary);
+}
+
+.modal-optional{
+    font-weight:400;
+    color:var(--color-text-tertiary);
+}
+
+/* ===========================
+   Inputs
+=========================== */
+
+.modal-input,
+.modal-textarea{
+
+    width:100%;
+
+    background:var(--color-background-secondary);
+
+    border:1px solid var(--color-border-tertiary);
+
+    border-radius:14px;
+
+    color:var(--color-text-primary);
+
+    font-size:.95rem;
+
+    transition:.25s;
+
+    outline:none;
+}
+
+.modal-input{
+
+    height:48px;
+    padding:0 16px;
+}
+
+.modal-textarea{
+
+    padding:14px 16px;
+
+    min-height:130px;
+
+    resize:vertical;
+
+    line-height:1.6;
+}
+
+.modal-input::placeholder,
+.modal-textarea::placeholder{
+    color:var(--color-text-tertiary);
+}
+
+.modal-input:hover,
+.modal-textarea:hover{
+
+    border-color:#8B84F7;
+}
+
+.modal-input:focus,
+.modal-textarea:focus{
+
+    border-color:#6C63FF;
+
+    box-shadow:
+        0 0 0 4px rgba(108,99,255,.15);
+
+    background:var(--color-background-primary);
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+.modal-actions{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:12px;
+
+    margin-top:30px;
+
+    flex-wrap:wrap;
+}
+
+.modal-btn-cancel,
+.modal-btn-submit{
+
+    height:46px;
+
+    min-width:120px;
+
+    border-radius:14px;
+
+    font-weight:600;
+
+    font-size:.92rem;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+}
+
+.modal-btn-cancel{
+
+    border:1px solid var(--color-border-tertiary);
+
+    background:transparent;
+
+    color:var(--color-text-secondary);
+}
+
+.modal-btn-cancel:hover{
+
+    background:var(--color-background-secondary);
+
+    transform:translateY(-2px);
+}
+
+.modal-btn-submit{
+
+    border:none;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6C63FF,
+            #5145CD
+        );
+
+    box-shadow:
+        0 10px 25px rgba(81,69,205,.35);
+}
+
+.modal-btn-submit:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 18px 35px rgba(81,69,205,.45);
+}
+
+.modal-btn-submit:active{
+
+    transform:scale(.97);
+}
+
+.modal-btn-submit:disabled{
+
+    opacity:.55;
+
+    cursor:not-allowed;
+
+    box-shadow:none;
+}
+
+/* ===========================
+   Scrollbar
+=========================== */
+
+.modal::-webkit-scrollbar{
+    width:8px;
+}
+
+.modal::-webkit-scrollbar-thumb{
+
+    background:rgba(120,120,120,.35);
+
+    border-radius:999px;
+}
+
+/* ===========================
+   Animations
+=========================== */
+
+@keyframes modalPop{
+
+    from{
+
+        opacity:0;
+        transform:translateY(30px) scale(.95);
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+@keyframes overlayFade{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width:640px){
+
+    .modal-overlay{
+        padding:1rem;
+        align-items:flex-end;
+    }
+
+    .modal{
+
+        width:100%;
+
+        max-height:90vh;
+
+        border-radius:22px 22px 0 0;
+
+        animation:slideUp .3s ease;
+    }
+
+    .modal-actions{
+
+        flex-direction:column-reverse;
+    }
+
+    .modal-btn-submit,
+    .modal-btn-cancel{
+
+        width:100%;
+    }
+}
+
+@keyframes slideUp{
+
+    from{
+        transform:translateY(100%);
+    }
+
+    to{
+        transform:translateY(0);
+    }
+}
